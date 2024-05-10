@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const passport = require("passport")
-const plm = require(passport-local-mongoose)
+const plm = require("passport-local-mongoose")
 const userschema = new mongoose.Schema({
     name:{
         type :String,
