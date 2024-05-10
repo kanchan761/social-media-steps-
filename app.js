@@ -22,12 +22,11 @@ app.use(
       secret: "asdhbcfkjf",
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
