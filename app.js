@@ -9,22 +9,25 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-const user = require("./db/connect");
-const passport = require('passport');
-const session = require('express-session');
+const mongoose = require("./db/connect");
+
+const passport = require("passport");
+const session = require("express-session");
+const user = require("./db/userschema")
 
 app.use(
   session({
-    saveUninitialized : true,
-    resave : true ,
-    secret : "des12456fgg"
+      saveUninitialized: true,
+      resave: true,
+      secret: "asdhbcfkjf",
   })
-)
+);
+app.use(passport.initialize());
+app.use(passport.session());
+passport.serializeUser(user.serializeUser());
+passport.deserializeUser(user.deserializeUser());
 
-app.use(passport.initialize())
-app.use(passport.session())
-passport.serializeUser(user.serializeUser())
-passport.deserializeUser(user.deserializeUser())
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

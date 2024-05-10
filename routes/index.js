@@ -4,7 +4,7 @@ var router = express.Router();
 const user = require("../db/userschema")
 const passport = require("passport")
 
-
+const LocalStrategy = require("passport-local")
 
 
 /* GET home page. */
