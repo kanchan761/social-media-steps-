@@ -17,7 +17,15 @@ router.get('/Register', function(req, res, next) {
   res.render('register');
 });
 
-router.post('/Register', function(req, res, next) {
-  res.render('register');
+router.post('/Register',async function(req, res, next) {
+ try{
+  const newuser = new user(req.body)
+  await newuser.save()
+  res.redirect('/')
+ }
+catch(error){
+console.log(error.message)
+}
 });
+
 module.exports = router;
