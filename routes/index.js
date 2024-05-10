@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const user = require("../db/userschema")
+const passport = require("passport")
 
 
 
@@ -29,3 +30,6 @@ console.log(error.message)
 });
 
 module.exports = router;
+
+
+
