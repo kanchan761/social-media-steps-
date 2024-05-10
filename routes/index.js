@@ -12,9 +12,14 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.post('/login', function(req, res, next) {
-  res.render('index');
-});
+router.post('/login', passport.authenticate("local",{
+
+successRedirect :"/profile",  
+failureRedirect :"/",
+
+}), function(req, res, next) {}
+
+);
 
 router.get('/Register', function(req, res, next) {
   res.render('register');
@@ -36,6 +41,9 @@ res.json(error.message)
 }
 });
 
+router.get("/profile", function(req,res,next){
+res.render("profile")
+})
 module.exports = router;
 
 
